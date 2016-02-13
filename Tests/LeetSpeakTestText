@@ -1,0 +1,16 @@
+LeetSpeak will accept one letter and turn it into the appropriate l33t letter.
+LeetSpeak will accept a word and break it into a list of chars.
+LeetSpeak will get a list of chars and change all "e" letters into l33t speak.
+LeetSpeak will get a list of chars and change all "E" letters into l33t speak.
+LeetSpeak will get a list of chars and change all the letters into l33t speak.
+  We can test them one by one.
+  "o" = "0"
+  "L" = "l"
+  "s" = "z" unless it is first letter of word.
+LeetSpeak will get a list of lists of chars and change all the letters of each word to l33t speak.
+
+Website:
+Welcome user to input in a text field with a submit button.
+Show them the results of the conversion
+Invite them to add more or clear it
+Maybe send it by email? Then we could ask them to include their email, email to send to, and have a mailto link maybe.
