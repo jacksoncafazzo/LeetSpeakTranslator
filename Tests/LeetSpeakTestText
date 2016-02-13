@@ -7,7 +7,7 @@ LeetSpeak will get a list of chars and change all the letters into l33t speak.
   "o" = "0"
   "L" = "l"
   "s" = "z" unless it is first letter of word.
-LeetSpeak will get a list of lists of chars and change all the letters of each word to l33t speak.
+LeetSpeak will get a string of words and change all the letters of each word to l33t speak.
 
 Website:
 Welcome user to input in a text field with a submit button.

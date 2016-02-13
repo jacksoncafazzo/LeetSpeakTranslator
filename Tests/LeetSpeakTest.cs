@@ -21,5 +21,11 @@ namespace LeetSpeakTranslator
       LeetSpeakTranslator testLeetSpeak = new LeetSpeakTranslator();
       Assert.Equal("s0faz", testLeetSpeak.Translate("sofas"));
     }
+    [Fact]
+    public void Translate_TurnASentenceIntoAStringNoSpaces_true()
+    {
+      LeetSpeakTranslator testLeetSpeak = new LeetSpeakTranslator();
+      Assert.Equal("s0faz 13m0n", testLeetSpeak.Translate("sofas Lemon"));
+    }
   }
 }
