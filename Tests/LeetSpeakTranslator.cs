@@ -14,16 +14,16 @@ namespace LeetSpeakTranslator
       {
         for (int j = 0; j < wordArray.Length; j++)
         {
-          if (i != 3)
+          if (wordArray[j] == testArray[i])
           {
-            if (wordArray[j] == testArray[i] || i == 2 && char.IsUpper(wordArray[j]))
+            if (i != 3 || j > 0)
             {
               wordArray[j] = replaceArray[i];
             }
-          }
-          if (j > 0 && i == 3 && wordArray[j] == testArray[i])
-          {
-            wordArray[j] = replaceArray[i];
+            else if (i == 2 && char.IsUpper(wordArray[j]))
+            {
+              wordArray[j] = replaceArray[i];
+            }
           }
         }
       }
