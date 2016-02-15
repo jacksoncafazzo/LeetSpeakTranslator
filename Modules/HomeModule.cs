@@ -16,6 +16,11 @@ namespace LeetSpeakTranslator
         // messagesForUser = messagesForUser.GetAll();
         return View["translated.cshtml", messageForUser];
       };
+      Post["/more_leets"] = _ => {
+        LeetSpeak messageForUser = new LeetSpeak(Request.Form["another-leet"], "");
+        messageForUser = messageForUser.Translate();
+        return View["translated.cshtml", messageForUser];
+      };
 
     }
   }
