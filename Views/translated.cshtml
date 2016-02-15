@@ -1,0 +1,12 @@
+<form action="/more_leets">
+  <label for="more-leets"></label>
+  <input type="text-box" name="name" placeholder="enter more">
+  <button type="submit" name="more-leets"></button>
+</form>
+<h2>Y0 whazzup h3r3z y0ur s3nt3nc3z:</h2>
+<ol>
+@foreach (leet in Model)
+{
+  <li>@leet.GetValue()</li>
+}
+</ol>
