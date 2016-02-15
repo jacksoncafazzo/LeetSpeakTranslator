@@ -5,23 +5,34 @@ namespace LeetSpeakTranslator.Objects
 {
   public class LeetSpeak
   {
+    private string _unTranslated;
     private string _leetness;
     private int _id;
     private static List<LeetSpeak> _instances = new List<LeetSpeak>() {};
 
-    public LeetSpeak(string leetness)
+    public LeetSpeak(string unTranslated, string leetness)
     {
+      _unTranslated = unTranslated;
       _leetness = leetness;
-      _instances = _instances.Add(this);
+      _instances.Add(this);
       _id = _instances.Count;
+    }
+
+    public string GetUntranslated()
+    {
+      return _unTranslated;
+    }
+    public void SetUnTranslated(string newUserInput)
+    {
+      _unTranslated = newUserInput;
     }
     public string GetLeetSpeak()
     {
       return _leetness;
     }
-    public void SetLeetSpeak(LeetSpeak leetness)
+    public void SetLeetSpeak(string newLeet)
     {
-      _leetness = leetness;
+      _leetness = newLeet;
     }
     public int GetId()
     {
@@ -31,14 +42,14 @@ namespace LeetSpeakTranslator.Objects
     {
       return _instances;
     }
-    public void ClearAll()
+    public static void ClearAll()
     {
       _instances.Clear();
     }
-
-    public LeetSpeak Translate(string word)
+    public LeetSpeak Translate()
     {
-      char[] wordArray = word.ToCharArray();
+      string userInput = _unTranslated;
+      char[] wordArray = userInput.ToCharArray();
       char[] testArray = "eoLsEOS".ToCharArray();
       char[] replaceArray = "301z30S".ToCharArray();
 
@@ -59,8 +70,9 @@ namespace LeetSpeakTranslator.Objects
           }
         }
       }
-      LeetSpeak leetness = new LeetSpeak(String.Join("", wordArray));
-      return leetness;
+      _leetness = String.Join("", wordArray);
+
+      return this;
     }
   }
 }
