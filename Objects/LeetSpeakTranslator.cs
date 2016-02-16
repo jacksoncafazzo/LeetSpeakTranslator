@@ -46,6 +46,10 @@ namespace LeetSpeakTranslator.Objects
     {
       _instances.Clear();
     }
+    public static LeetSpeak Find(int searchId)
+    {
+      return _instances[searchId-1];
+    }
     public LeetSpeak Translate()
     {
       string userInput = _unTranslated;

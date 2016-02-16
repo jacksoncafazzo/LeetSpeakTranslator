@@ -12,14 +12,19 @@ namespace LeetSpeakTranslator
       Post["/translate"] = _ => {
         LeetSpeak messageForUser = new LeetSpeak(Request.Form["translate-me"], "");
         messageForUser = messageForUser.Translate();
-        // List<LeetSpeak> messagesForUser = new List<LeetSpeak>() {};
-        // messagesForUser = messagesForUser.GetAll();
-        return View["translated.cshtml", messageForUser];
+        List<LeetSpeak> allLeets = LeetSpeak.GetAll();
+        return View["translated.cshtml", allLeets];
       };
-      Post["/more_leets"] = _ => {
-        LeetSpeak messageForUser = new LeetSpeak(Request.Form["another-leet"], "");
-        messageForUser = messageForUser.Translate();
-        return View["translated.cshtml", messageForUser];
+      // Post["/more_leets"] = _ => {
+      //   LeetSpeak messageForUser = new LeetSpeak(Request.Form["translate-me"], "");
+      //   messageForUser = messageForUser.Translate();
+      //   List<LeetSpeak> allLeets = LeetSpeak.GetAll();
+      //   return View["translated.cshtml", allLeets];
+      // };
+      Post["/leet/{id}"] = parameters => {
+        List<LeetSpeak> allLeets = LeetSpeak.GetAll();
+        allLeets.RemoveAt(parameters.id - 1);
+        return View["translated.cshtml", allLeets];
       };
 
     }
