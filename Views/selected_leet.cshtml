@@ -1,9 +1,13 @@
-<form action="/more_leets">
-  <label for="more-leets"></label>
-  <input type="text-box" name="name" placeholder="enter more">
-  <button type="submit" name="more-leets">l33t m3</button>
+<form action="/translate" name="translate" method="post">
+  <label for="translate-me"></label>
+  <input type="text-box" name="translate-me" placeholder="enter more">
+  <button type="submit" name="translate">l33t m3</button>
 </form>
 <h2>Y0 whazzup want to delete your 133t?</h2>
+<p>here's the list of them without it</p>
 <ol>
-  <li>@Model.GetLeetSpeak()</li>
+  @foreach (var leet in @Model)
+  {
+    <li>@leet.GetLeetSpeak() <a href="/leet/@leet.GetId()">d3l3t3 thiz 133t</a></li>
+  }
 </ol>

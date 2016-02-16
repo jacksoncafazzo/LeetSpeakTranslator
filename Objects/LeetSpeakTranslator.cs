@@ -38,6 +38,10 @@ namespace LeetSpeakTranslator.Objects
     {
       return _id;
     }
+    public void SetId(int newId)
+    {
+      _id = newId;
+    }
     public static List<LeetSpeak> GetAll()
     {
       return _instances;
@@ -49,6 +53,13 @@ namespace LeetSpeakTranslator.Objects
     public static LeetSpeak Find(int searchId)
     {
       return _instances[searchId-1];
+    }
+    public static void RefreshIds(List<LeetSpeak> allTheLeets)
+    {
+      foreach (LeetSpeak leet in allTheLeets)
+      {
+        leet.SetId(_instances.IndexOf(leet) + 1);
+      }
     }
     public LeetSpeak Translate()
     {
@@ -63,7 +74,7 @@ namespace LeetSpeakTranslator.Objects
         {
           if (wordArray[j] == testArray[i])
           {
-            if (i != 3 && i != 7 || j > 0)
+            if (i != 3 && i != 6 || j > 0)
             {
               wordArray[j] = replaceArray[i];
             }

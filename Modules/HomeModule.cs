@@ -24,7 +24,8 @@ namespace LeetSpeakTranslator
       Post["/leet/{id}"] = parameters => {
         List<LeetSpeak> allLeets = LeetSpeak.GetAll();
         allLeets.RemoveAt(parameters.id - 1);
-        return View["translated.cshtml", allLeets];
+        LeetSpeak.RefreshIds(allLeets);
+        return View["selected_leet.cshtml", allLeets];
       };
 
     }
